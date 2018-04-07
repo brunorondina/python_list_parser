@@ -10,6 +10,7 @@ void yyerror(char *);
 
 
 %%
+
 "[" {
 	return AC;
 }
@@ -26,6 +27,7 @@ void yyerror(char *);
 	return STR;
 }
 \n { return EOL;}
+
 
 . ;
 

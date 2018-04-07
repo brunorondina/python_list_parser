@@ -5,6 +5,7 @@
   #include <stdlib.h>
 void yyerror(char *c);
 int yylex(void);
+int error=0;
 %}
 %token INT STR EOL AC FC VIR
 
@@ -36,12 +37,16 @@ EXPRESSAO:
 %%
 
 void yyerror(char *s) {
+	error=1;
 	printf("ERRO\n");
 }
 
 int main() {
   yyparse();
+	if(error==0){
 	printf("OK\n");
+	error=0;
+}
     return 0;
 
 }
